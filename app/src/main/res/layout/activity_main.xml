@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:id="@+id/icon_temperature_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toBottomOf="@id/temperature_value"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/temperature_value"
+            app:srcCompat="@drawable/ic_thermostat_black" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/temperature_value"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:hint="@string/temperature_value"
+            app:layout_constraintStart_toEndOf="@id/icon_temperature_value"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/temperature_value_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/origin_unit"
+            style="@style/Widget.TemperatureConverter.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/origin_unit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/temperature_value">
+
+        </TextView>
+
+        <RadioGroup
+            android:id="@+id/origin_unit_options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/origin_celsius"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/origin_unit">
+
+            <RadioButton
+                android:id="@+id/origin_celsius"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/origin_celsius"></RadioButton>
+
+            <RadioButton
+                android:id="@+id/origin_fahrenheit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/origin_fahrenheit"></RadioButton>
+
+            <RadioButton
+                android:id="@+id/origin_kelvin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/origin_kelvin"></RadioButton>
+        </RadioGroup>
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/originBarrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="right"
+            app:constraint_referenced_ids="origin_unit,origin_unit_options"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <TextView
+            android:id="@+id/destination_unit"
+            style="@style/Widget.TemperatureConverter.TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/destination_unit"
+            app:layout_constraintStart_toEndOf="@id/originBarrier"
+            app:layout_constraintTop_toBottomOf="@id/temperature_value">
+
+        </TextView>
+
+        <RadioGroup
+            android:id="@+id/destination_unit_options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/destination_celsius"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@id/originBarrier"
+            app:layout_constraintTop_toBottomOf="@id/destination_unit">
+
+            <RadioButton
+                android:id="@+id/destination_celsius"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/destination_celsius"></RadioButton>
+
+            <RadioButton
+                android:id="@+id/destination_fahrenheit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/destination_fahrenheit"></RadioButton>
+
+            <RadioButton
+                android:id="@+id/destination_kelvin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/destination_kelvin"></RadioButton>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/calculate"
+            style="@style/action_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/calculate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/originBarrier"
+            app:layout_constraintTop_toBottomOf="@id/destination_unit_options"></Button>
+
+        <TextView
+            android:id="@+id/conversion_result"
+            style="@style/Widget.TemperatureConverter.TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/originBarrier"
+            app:layout_constraintTop_toBottomOf="@id/calculate"
+            tools:text="Conversion Result: 12°">
+
+
+        </TextView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

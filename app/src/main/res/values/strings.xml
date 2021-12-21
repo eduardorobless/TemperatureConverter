@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Temperature Converter</string>
+    <string name="temperature_value">Temperature Value</string>
+    <string name="origin_unit">Origin Unit</string>
+    <string name="origin_celsius">Celsius (°C)</string>
+    <string name="origin_fahrenheit">Fahrenheit (°F)</string>
+    <string name="origin_kelvin">Kelvin (K)</string>
+    <string name="destination_unit">Destination Unit</string>
+    <string name="destination_celsius">Celsius (°C)</string>
+    <string name="destination_fahrenheit">Fahrenheit (°F)</string>
+    <string name="destination_kelvin">Kelvin (K)</string>
+    <string name="calculate">Calculate</string>
+    <string name="conversion_result">%s %s = %s %s</string>
+    <string name="same_units_error">You are converting the same units</string>
+    <string name="empty_value_error">Enter a correct temperature value</string>
+</resources>
